@@ -14,3 +14,5 @@ rails app should validate user fields. Rails will note whether plan 1 or 2.
 * Once validated, rails should send user info(email, plan id) and card token to
 stripe server and stripe will create a subscription and send back customer token.
 Rails should save customer token and user info in our database.
+
+on lesson 112
