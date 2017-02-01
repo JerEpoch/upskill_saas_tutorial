@@ -1,8 +1,9 @@
-/* global $, Stripe */  //to let know $ exists somewhere else
+/* global $, Stripe */  
+//to let know $ exists somewhere else
 
 // Document ready
 $(document).on('turbolinks:load', function(){
-  var theForm = $('#pro-form');
+  var theForm = $('#pro_form');
   var submitBtn = $('#form-signup-btn');
   // Set Strip public key
   Stripe.setPublishableKey( $('meta[name="stripe-key"]').attr('content') );
@@ -23,17 +24,17 @@ $(document).on('turbolinks:load', function(){
     var error = false;
     
     //validate card number.
-    if (!Stripe.card.validateCardNumber(ccNum)); {
+    if (!Stripe.card.validateCardNumber(ccNum)) {
       error = true;
       alert('The credit card number appears to be invalid');
     }
     
-    if (!Stripe.card.validateCVC(cvcNum)); {
+    if (!Stripe.card.validateCVC(cvcNum)) {
       error = true;
       alert('The CVC number appears to be invalid');
     }
     
-    if (!Stripe.card.validateExpiry(expMonth,expYear)); {
+    if (!Stripe.card.validateExpiry(expMonth,expYear)) {
       error = true;
       alert('The expiration date appears to be invalid');
     }
@@ -43,7 +44,7 @@ $(document).on('turbolinks:load', function(){
       submitBtn.prop('disabled', false).val("Sign Up");
     } else {
         // send card info to Stripe.
-        Stripe.createToken({
+      Stripe.createToken({
         number: ccNum,
         cvc: cvcNum,
         exp_month: expMonth,
